@@ -5,7 +5,7 @@
 #pkg load symbolic;
 
 #prelim variables
-warning("off","all"); 
+#warning("off","all"); 
 
 a = 0.007; #Step Size
 lim = 0.00001 #Convergence precision limit
@@ -44,6 +44,9 @@ partialsubbed = function_handle(jsum);
 while(iterations <1000)
   
   temp = partialsubbed(theta1,theta2);
+  
+  prevt1 = theta1;
+  prevt2 = theta2;
   
   theta1 = theta1 - (a)*temp(1);
   theta2 = theta2 - (a)*temp(2);
