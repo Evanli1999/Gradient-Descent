@@ -5,7 +5,7 @@
 #pkg load symbolic;
 
 #prelim variables
-warning("off","all"); 
+#warning("off","all"); 
 
 a = 0.005; #Step Size
 lim = 0.00000001 #Convergence precision limit
