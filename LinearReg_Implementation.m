@@ -5,10 +5,10 @@
 #pkg load symbolic;
 
 #prelim variables
-#warning("off","all"); 
+warning("off","all"); 
 
-a = 0.007; #Step Size
-lim = 0.00001 #Convergence precision limit
+a = 0.005; #Step Size
+lim = 0.00000001 #Convergence precision limit
 
 #x/y of training set----------------------
 
@@ -41,7 +41,7 @@ f = (g.*g); #squaring each element in g (we omit the constant term in the front)
 jsum = sum(jacobian(f)); #Sum of the jacobian of matrix f 
 partialsubbed = function_handle(jsum);
 
-while(iterations <1000)
+while(iterations <5000 && abs(prevt1 - theta1)>lim && abs(prevt2 - theta2)>lim)
   
   temp = partialsubbed(theta1,theta2);
   
@@ -59,8 +59,11 @@ endwhile
 
 
 disp("Results");
+disp("-------");
+disp("y=");
 disp(double(theta1));
-
+disp("x");
+disp("+");
 disp(double(theta2))
 
 
